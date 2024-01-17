@@ -1,0 +1,29 @@
+plugin_mongodb {
+  connection {
+    mongo_type = rs
+    bootstrap_hosts = ["10.3.64.223:27017","10.3.64.223:27018","10.3.64.223:27019"]
+    replica_set_name = "emqx"
+    database = "emqx"
+    username = "dev_1"
+    password = "123456"
+    topology {
+      max_overflow = 10
+      wait_queue_timeout_ms = 1s
+      heartbeat_frequency_ms = 10s
+    }
+    health_check_interval = 20s
+  }
+
+  topics = [
+    {
+      name = emqx_test1,
+      filter = "test/t1/#",
+      collection = mqtt1
+    }
+    , {
+      name = emqx_test2,
+      filter = "test/t2/+",
+      collection = mqtt2
+    }
+  ]
+}

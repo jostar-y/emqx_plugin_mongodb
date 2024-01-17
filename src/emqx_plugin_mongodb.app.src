@@ -1,0 +1,11 @@
+{application, emqx_plugin_mongodb,
+ [{description, "EMQX mongodb plugin."},
+  {vsn, "0.1.0"},
+  {modules, []},
+  {registered, [emqx_plugin_mongodb_sup]},
+  {applications, [kernel, stdlib, mongodb]},
+  {mod, {emqx_plugin_mongodb_app, []}},
+  {env, []},
+  {licenses, ["Apache-2.0"]},
+  {maintainers, [""]}
+ ]}.

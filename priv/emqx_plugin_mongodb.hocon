@@ -1,0 +1,20 @@
+plugin_mongodb {
+  connection {
+    mongo_type = single
+    bootstrap_hosts = ["10.3.64.223:27017"]
+    database = "emqx"
+    username = "dev_1"
+    password = "123456"
+    topology {
+      pool_size = 12
+    }
+  }
+
+  topics = [
+    {
+      name = emqx_test,
+      filter = "test/#",
+      collection = mqtt
+    }
+  ]
+}
